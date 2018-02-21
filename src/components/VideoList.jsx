@@ -1,26 +1,7 @@
-// class VideoList extends React.Component {
-//   constructor(props) {
-//     super(props);
-//   }
-
-//   render () {
-//     console.log("this.props.videos")
-//     console.log(this.props.videos)
-//     var indents = [];
-//     for (var i = 0; i < this.props.videos; i++) {
-//       indents.push(<VideoListEntry video={this.props.videos[i]}/>);
-//     }
-//     return (
-//       <div className="video-list media">
-//       {indents}
-//       </div>)
-//   }
-// }
-var VideoList = ({videos}) => {
-  var i = 0;
+var VideoList = ({videos, changeCurrent}) => {
   return (
     <div className="video-list media">
-    {videos.map(video => <VideoListEntry video={videos[i++]} key={i}/>)}
+    {videos.map((video, ind) => <VideoListEntry video={videos[ind]} ind={ind} key={ind} changeCurrent={changeCurrent}/>)}
     </div>)
 }
 

@@ -11,7 +11,7 @@ class App extends React.Component {
   searchYouTube (query)  {
     var that = this;
     $.ajax({
-      type: 'GET',
+      method: 'GET',
       url: `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${window.YOUTUBE_API_KEY}&maxResults=5&q=${query}`,
       success: ({items}) => {
         that.setState({
