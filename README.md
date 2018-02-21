@@ -14,5 +14,5 @@ This is a project I completed as a student at [hackreactor](http://hackreactor.c
 
 # tests:
 
-- passes: 12
-- failures: 5
+- passes: 14
+- failures: 3

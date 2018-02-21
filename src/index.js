@@ -1,2 +1,2 @@
 
-ReactDOM.render(<App exampleVideoData={window.exampleVideoData}/>, document.getElementById('app'));
+ReactDOM.render(<App exampleVideoData={window.exampleVideoData} searchYouTube={window.searchYouTube}/>, document.getElementById('app'));

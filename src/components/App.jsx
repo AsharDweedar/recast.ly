@@ -8,21 +8,17 @@ class App extends React.Component {
     }
   }
 
-  searchYouTube (query)  {
+  searcher (query)  {
     var that = this;
-    $.ajax({
-      method: 'GET',
-      url: `https://www.googleapis.com/youtube/v3/search?part=snippet&key=${window.YOUTUBE_API_KEY}&maxResults=5&q=${query}`,
-      success: ({items}) => {
-        that.setState({
-          list: items,
-          current: items[0]
-        })
-      },
-      error: (error) => {
-        console.log("error :")
-        console.log(error)
-      }
+    this.props.searchYouTube({
+      key: window.YOUTUBE_API_KEY,
+      max: 5,
+      query: query
+    }, (items) => {
+      that.setState({
+        list: items
+      });
+      changeCurrent(0)
     })
   }
 
@@ -35,7 +31,7 @@ class App extends React.Component {
   render ()  {
     return (
         <div>
-          <Nav searcher={this.searchYouTube.bind(this)}/>
+          <Nav searcher={this.searcher.bind(this)}/>
           <div className="col-md-7">
             <VideoPlayer video={this.state.current}/>
           </div>
