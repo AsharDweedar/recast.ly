@@ -43,7 +43,10 @@ npm test
 # Tests:
 
 - passes: 21
-- failures: 2
+- failures: 1
+- pending: 1
+
+    why bending: calling `YOUTUBE_API` won't guarantee that data have the same shape always after the search; if a channel or list of videos appear in the search they won't have the videoId, instead they would have `channelId` ... saying: change it for "cats" would mostly give you a match (only array of videos not channels or lists)
 
 # TODO:
 

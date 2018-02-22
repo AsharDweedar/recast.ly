@@ -11,10 +11,10 @@ class App extends React.Component {
     }
   }
 
-  searcher (query)  {
+  searcher ({query, key, max})  {
     this.props.searchYouTube({
-      key: window.YOUTUBE_API_KEY,
-      max: 5,
+      key: key,
+      max: max,
       query: query
     }, (items) => {
       this.setState({
@@ -33,7 +33,7 @@ class App extends React.Component {
   render ()  {
     var that = this;
     async function search() {
-      await that.searcher("cats");
+      await that.searcher({query:"cats", max: 5, key:window.YOUTUBE_API_KEY});
     }
     if (!this.state.current.id.videoId) {
       search();
@@ -52,5 +52,5 @@ class App extends React.Component {
 }
 
 // In the ES6 spec, files are "modules" and do not share a top-level scope
-// `var` declarations will only exist globally where explicitly defined
+// `var` declarations will only exist globally where explicitly defined.
 window.App = App;

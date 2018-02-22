@@ -6,8 +6,8 @@ var searchYouTube = ({key, max, query}, callback) => {
       callback(items);
     },
     error: (error) => {
-      console.log("error :")
-      alert(JSON.stringify(error.responseText.error.errors))
+      alert(JSON.parse(error.responseText).error.errors[0].reason)
+      callback([]);
     }
   })
 };
