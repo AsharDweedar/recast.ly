@@ -20,9 +20,14 @@ npm install -g babel-cli
 ```bash
 babel . --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled --source-maps inline
 ```
-add : ```--watch``` to keep compiling after any change
+add : `--watch` to keep compiling after any change
 
-- cretae the file `./src/config/youtube.example.js`  with the content:
+- can get the page to re-render after each change with:
+```bash
+live-server # or: live-server index.html
+```
+
+- cretae the file `./src/config/youtube.js`  with the content:
 ```javascript
 window.YOUTUBE_API_KEY = 'KEY'; //add key here
 ```
@@ -30,7 +35,8 @@ window.YOUTUBE_API_KEY = 'KEY'; //add key here
 
 - run tests with:
 ```bash
-npm test
+npm test # this will run "test" command from package JSON:
+# same as: live-server --open=./SpecRunner.html --port=8081
 ```
 
 
